@@ -227,7 +227,7 @@
                   (if val
                     [true (delay (.getContentType ^MediaDescriptor @val)) (delay (.getName ^MediaDescriptor @val)) (delay (.getBytes ^HasBytes @val))]
                     [false nil nil nil]))
-      "simpleObject" (if val
+      "simpleObject" (if (some? val)
                        [(util/write-json-str val)]
                        [nil])
       "unresolved" [nil]
